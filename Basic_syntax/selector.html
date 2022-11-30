@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>ELEMENT</p>
+    <h1 id="id">ID</h1>
+    <h2 class="class">CLASS</h2>
+    <button>THIS</button>
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+    </table>
+
+    <a href="#">first</a>
+    <a href="#">second</a>
+    <a href="#">third</a>
+
+    <button class="f1">FIRST</button>
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+
+    // select all element
+    // $(document).ready(function () {
+    //     $('*').click(function () {
+    //         $('*').hide();
+    //     });
+    // });
+
+
+    // ELEMENT SELECTOR
+    $(document).ready(function () {
+        $('p').click(function () {
+            $('p').hide();
+        });
+
+        // id selector 
+        $('#id').click(function () {
+            $('#id').hide();
+        });
+
+
+        // class selector 
+        $('.class').click(function () {
+            $('.class').hide();
+        });
+
+        // select current element
+        $('button').click(function () {
+            $(this).hide();
+        });
+
+        // select even 
+        $("tr:even").css("background-color", "yellow");
+
+        // select odd 
+        $("tr:odd").css("background-color", "red");
+
+        // select first 
+        $('button.f1').click(function () {
+            $('a:first').hide();
+        });
+    });
+
+</script>
+
+</html>

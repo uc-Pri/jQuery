@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .ancestors * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .descendants * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .sibling * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .next * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .nextall * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .nextuntil * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ancestors">
+        <div style="width:500px;">div (great-grandparent)
+            <ul>ul (grandparent)
+                <li>li (direct parent)
+                    <span id="span">span</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="descendants" style="width:500px;">div (current element)
+        <p class="first">p (child)
+            <span>span (grandchild)</span>
+        </p>
+        <p class="second">p (child)
+            <span>span (grandchild)</span>
+        </p>
+    </div>
+
+    <div class="find">
+        <h1>Prince(jquery Master)</h1>
+        <h2>Prince(jquery Master)</h2>
+    </div>
+
+
+    <div class="sibling">
+        <p>Bhai</p>
+        <p>Bhen</p>
+        <h1 id="sib">Tau ka ladka</h1>
+        <p>Mama ka ladka</p>
+        <p>Mama ki ladki</p>
+    </div>
+    <br><br><br>
+    <div class="next">
+        <p>Bhen</p>
+        <h1 id="next">Bhai</h1>
+        <p>Mama ka ladka</p>
+        <p>Mama ki ladki</p>
+    </div>
+    <br><br><br>
+    <div class="nextall">
+        <p>Bhen</p>
+        <h1 id="nextall">Bhai</h1>
+        <p>Mama ka ladka</p>
+        <p>Mama ki ladki</p>
+    </div>
+
+
+    <div class="nextuntil">div (parent)
+        <p>p</p>
+        <span>span</span>
+        <h2 id="nextuntil">h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+        <h5>h5</h5>
+        <h6>h6</h6>
+        <p>p</p>
+    </div>
+
+    <div class="eq">div (parent)
+        <p class="intro">p1</p>
+        <p>p2</p>
+        <p>p3</p>
+        <p>p4</p>
+        <p class="intro">p5</p>
+    </div>
+
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        // parent 
+        $("#span").parent().css({ "color": "red", "border": "2px solid red" });
+
+        // parents until (grandparent) 
+        $("#span").parentsUntil("div").css({ "color": "blue", "border": "2px solid red" });
+
+        // children 
+        $(".descendants").children().css({ "color": "green", "border": "2px solid blue" });
+
+        // first child 
+        $(".descendants").children("p.first").css({ "color": "red", "border": "2px solid yellow" });
+
+        // find 
+        $(".find").find("h1").css({ "color": "red" });
+
+        // siblings
+        $("#sib").siblings().css({ "color": "purple", "border": "2px solid black" });
+
+        // next siblings 
+        $("#next").next().css({ "color": "black", "border": "2px solid skyblue" });
+
+        // next all siblings 
+        $("#nextall").nextAll().css({ "color": "pink", "border": "2px solid green" });
+
+
+        // next until 
+        $("#nextuntil").nextUntil('h6').css({ "color": "green", "border": "2px solid pink" });
+
+        // The prev(), prevAll() and prevUntil() methods work just like the methods above but with reverse functionality: they return previous sibling elements (traverse backwards along sibling elements in the DOM tree, instead of forward).
+
+        // filter 
+        // The first(), last(), eq(), filter() and not() Methods 
+        $("p").eq(2).css("background-color", "yellow");
+
+        // filter 
+        $("p").filter(".intro").css("background-color", "yellow");
+
+        // not 
+        $("p").not(".intro").css("background-color", "brown");
+
+
+
+
+    });
+</script>
+
+</html>

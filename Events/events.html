@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>If you click on me, I will disappear.</p>
+    <h1>Double click me.</h1>
+    <span id="p1">MOUSE ENTER </span> <br>
+    <span id="p2">MOUSE LEAVE </span> <br>
+    <span id="p3">MOUSE down </span> <br>
+    <span id="p4">MOUSE up </span> <br>
+    <span id="p5">HOVER </span> <br>
+
+    Name: <input type="text" name="fullname"><br>
+    Email: <input type="text" name="email">
+
+    <h2>ON</h2>
+
+    <h3>Try the scrollbar in the div</h3>
+
+    <div style="border:1px solid black;width:200px;height:100px;overflow:scroll;">In my younger and more vulnerable
+        years my father gave me some advice that I've been turning over in my mind ever since.
+        <br><br>
+        'Whenever you feel like criticizing anyone,' he told me, just remember that all the people in this world haven't
+        had the advantages that you've had.'
+    </div>
+
+    <h4>Scrolled <span id="scroll">0</span> times.</h4>
+
+    <h4>Window resized <span class="resize">0</span> times.</h4>
+    <h4>Try resizing your browser window.</h4>
+
+
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        // click() 
+
+        $("h4").click(function () {
+            $('p').hide();
+        });
+
+        // double click 
+        $("h1").dblclick(function () {
+            $('h1').hide();
+        });
+
+        // mouse enter 
+        $("#p1").mouseenter(function () {
+            alert("You entered mouse enter!");
+        });
+
+        // mouse leave 
+        $("#p2").mouseleave(function () {
+            alert("Bye! You now leave mouse leave!");
+        });
+
+        // mouse down 
+        $("#p3").mousedown(function () {
+            alert("Mouse down !");
+        });
+
+        // mouse up 
+        $("#p4").mouseup(function () {
+            alert("Mouse up!");
+        });
+
+        // hover 
+        $("#p5").hover(function () {
+            alert("You entered hover!");
+        },
+            function () {
+                alert("Bye! You now leave hover!");
+            });
+
+        // focus 
+        $("input").focus(function () {
+            $(this).css("background-color", "yellow");
+        });
+
+        // blur 
+        $("input").blur(function () {
+            $(this).css("background-color", "green");
+        });
+
+        // on to attach multiple selectors 
+        $("h2").on({
+            mouseenter: function () {
+                $(this).css("background-color", "lightgray");
+            },
+            mouseleave: function () {
+                $(this).css("background-color", "lightblue");
+            },
+            click: function () {
+                $(this).css("background-color", "yellow");
+            }
+        });
+
+        // scroll 
+        var x = 0;
+        $("div").scroll(function () {
+            $("#scroll").text(x += 1);
+        });
+
+        // resize 
+        var y = 0;
+        $(window).resize(function () {
+            $("#resize").text(y += 1);
+        });
+    });
+</script>
+
+</html>

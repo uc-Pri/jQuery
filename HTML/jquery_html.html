@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+</script>
+<style>
+    .important {
+        font-weight: bold;
+        font-size: xx-large;
+    }
+
+    .blue {
+        color: blue;
+    }
+</style>
+
+<body>
+
+    <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+    <button id="btn1">Show Text</button>
+    <button id="btn01">Set Text</button> <br> <br>
+    <button id="btn2">Show HTML</button>
+    <button id="btn02">Set HTML</button>
+
+
+    <p>Name: <input type="text" id="val" value=""></p>
+    <button id="btn3">Show Value</button>
+    <button id="btn03">Set Value</button>
+
+    <p><a href="https://www.ucertify.com" id="ucian">uCertify.com</a></p>
+    <button id="btn4">Show attribute link </button>
+    <button id="btn04">Change attribute link </button>
+    <br><br>
+
+    <p id="P">Value before appending . </p>
+    <button id="btn5">Append</button>
+    <button id="btn6">Prepend</button>
+    <button id="btn7">After</button>
+    <button id="btn8">Before</button> <br><br>
+
+    <div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:greenyellow ;">
+
+        This is some text in the div.
+        <p>This is a paragraph in the div.</p>
+        <p>This is another paragraph in the div.</p>
+
+    </div>
+    <br>
+
+    <button id="btn9">Remove div element</button>
+    <button id="btn10">Empty div element</button>
+
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+
+    <p id="p">This is a paragraph.</p>
+
+    <div id="div">This is some important text!</div><br>
+
+    <button id="btn11">Add classes to elements</button>
+    <button id="btn12">Remove classes from elements</button>
+
+    <h2 class="class">CSS</h2>
+    <button id="btn13">Apply css</button>
+
+    <p>dimension</p>
+    <button id="btn14">find dimension</button>
+    <button id="btn15">Resize dimension</button>
+
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+
+        // SET HTML
+        $("#btn1").click(function () {
+            alert("Text: " + $("#test").text());
+        });
+        $("#btn2").click(function () {
+            alert("HTML: " + $("#test").html());
+        });
+        $("#btn3").click(function () {
+            alert("Value: " + $("#val").val());
+        });
+
+        $("#btn4").click(function () {
+            confirm($("#ucian").attr("href"));
+        });
+
+
+        // GET HTML 
+        $("#btn01").click(function () {
+            $("#test").text("Hello world!");
+        });
+        $("#btn02").click(function () {
+            $("#test").html("<b>Hello world!</b>");
+        });
+        $("#btn03").click(function () {
+            $("#val").val("Prince sinha");
+        });
+        $("#btn04").click(function () {
+
+            alert($('#ucian').attr('href'));
+        });
+
+
+        // ADD 
+        $("#btn5").click(function () {
+            $("#P").append("   " + "Some appended text.");
+        });
+        $("#btn6").click(function () {
+            $("#P").prepend("   " + "Some prepend text.");
+        });
+
+        $("#btn7").click(function () {
+            $("#P").after("   " + "After element text.");
+        });
+        $("#btn8").click(function () {
+            $("#P").before("   " + "Before element  text.");
+        });
+
+
+        // Remove 
+        $("#btn9").click(function () {
+            $("#div1").remove();
+        });
+        $("#btn10").click(function () {
+            $("#div1").empty();
+        });
+
+        // CSS 
+        // add class 
+        $("#btn11").click(function () {
+            $("h1, h2, #p").addClass("blue");
+            $("#div").addClass("important");
+        });
+
+        // remove class 
+        $("#btn12").click(function () {
+            $("h1, h2, #p").removeClass("blue");
+            $("#div").removeClass("important");
+        });
+
+        // css 
+        $("#btn13").click(function () {
+            $(".class").css("background-color", "yellow");
+        });
+
+        // dimension innerWidth outerWidth height width 
+        $("#btn14").click(function () {
+            var txt = "";
+            txt += "Width of div: " + $("#div1").width() + "</br>";
+            txt += "Height of div: " + $("#div1").height();
+            $("#div1").html(txt);
+        });
+
+        // resize width height 
+        $("#btn15").click(function () {
+            $("#div1").width(1200).height(200);
+        });
+
+    });
+</script>
+
+</html>
